@@ -1,6 +1,8 @@
 # Castabout
 
-A fancier way to search in Neovim.
+A fancier way to search in Neovim. You probably want to use Telescope,
+but Castabout is much simpler and demonstrates a basic Neovim plugin
+in Lua.
 
 ## Requirements
 
