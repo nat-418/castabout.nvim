@@ -2,22 +2,21 @@ local M = {}
 
 M.search = function(tbl)
   local direction = '/'
-  local prompt = 'Search forwards in buffer: '
+  local prompt    = 'Search forwards in buffer: '
+
   if tbl.args == 'backwards' then
     direction = '?'
-    prompt = 'Search backwards in buffer: '
+    prompt    = 'Search backwards in buffer: '
   end
+
   vim.ui.input({
-    prompt = prompt,
+    prompt  = prompt,
     default = ''
   }, function(input)
     if input then
-      vim.api.nvim_feedkeys(
-        ':' .. direction .. input .. vim.api.nvim_eval('"\\<CR>"'),
-        'm',
-        true
-      )
+      return vim.cmd(direction .. input)
     end
+    return 0
   end)
 end
 
