@@ -6,7 +6,8 @@ M.search = function(direction)
   local command = '/' -- Assume a forwards search
   local message   = 'Search forwards in buffer: '
 
-  if direction == 'backwards' then -- Modify the search if explicitly asked
+  -- Modify the search if explicitly asked
+  if direction ~= nil and direction == 'backwards' then
     command = '?'
     message   = 'Search backwards in buffer: '
   end
@@ -23,10 +24,10 @@ end
 M.setup = function()
   local completion = function(_, _, _) return {'forwards', 'backwards'} end
 
-  vim.api.nvim_create_user_command(
+  return vim.api.nvim_create_user_command(
     'Castabout',
     function(args) M.search(args) end,
-    {nargs = 1, complete = completion}
+    {nargs = '?', complete = completion}
   )
 end
 
