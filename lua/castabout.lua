@@ -1,35 +1,33 @@
+-- A common convention for Neovim plugins written in Lua is to build and ship
+-- a single `M` table via a `return M` at the end of the file.
 local M = {}
 
-M.search = function(tbl)
-  local direction = '/'
-  local prompt    = 'Search forwards in buffer: '
+M.search = function(args)
+  local direction = '/' -- Assume a forwards search
+  local message   = 'Search forwards in buffer: '
 
-  if tbl.args == 'backwards' then
+  if args.args == 'backwards' then -- Modify the search if explicitly asked
     direction = '?'
-    prompt    = 'Search backwards in buffer: '
+    message   = 'Search backwards in buffer: '
   end
 
-  vim.ui.input({
-    prompt  = prompt,
-    default = ''
-  }, function(input)
-    if input then
-      return vim.cmd(direction .. input)
-    end
+  local callback = function(input) -- What to do after we get search terms
+    if input then return vim.cmd(direction .. input) end
+    print('No input given')
     return 0
-  end)
+  end
+
+  return vim.ui.input({prompt = message, default = '' }, callback)
 end
 
 M.setup = function()
+  local completion = function(_, _, _) return {'forwards', 'backwards'} end
+
   vim.api.nvim_create_user_command(
-  'Castabout',
-  function(opts) M.search(opts.args) end,
-  {
-    nargs = 1,
-    complete = function(_,_)
-      return {"forwards", "backwards"}
-    end
-  })
+    'Castabout',
+    function(args) M.search(args.args) end,
+    {nargs = 1, complete = completion}
+  )
 end
 
 return M
