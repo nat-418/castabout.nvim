@@ -2,17 +2,17 @@
 -- a single `M` table via a `return M` at the end of the file.
 local M = {}
 
-M.search = function(args)
-  local direction = '/' -- Assume a forwards search
+M.search = function(direction)
+  local command = '/' -- Assume a forwards search
   local message   = 'Search forwards in buffer: '
 
-  if args.args == 'backwards' then -- Modify the search if explicitly asked
-    direction = '?'
+  if direction == 'backwards' then -- Modify the search if explicitly asked
+    command = '?'
     message   = 'Search backwards in buffer: '
   end
 
   local callback = function(input) -- What to do after we get search terms
-    if input then return vim.cmd(direction .. input) end
+    if input then return vim.cmd(command .. input) end
     print('No input given')
     return 0
   end
