@@ -4,12 +4,12 @@ local M = {}
 
 M.search = function(direction)
   local command = '/' -- Assume a forwards search
-  local message   = 'Search forwards in buffer: '
+  local message = 'Search forwards in buffer: '
 
   -- Modify the search if explicitly asked
   if direction ~= nil and direction == 'backwards' then
     command = '?'
-    message   = 'Search backwards in buffer: '
+    message = 'Search backwards in buffer: '
   end
 
   local callback = function(input) -- What to do after we get search terms
