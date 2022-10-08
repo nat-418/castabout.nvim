@@ -25,7 +25,7 @@ M.setup = function()
 
   vim.api.nvim_create_user_command(
     'Castabout',
-    function(args) M.search(args.args) end,
+    function(args) M.search(args) end,
     {nargs = 1, complete = completion}
   )
 end
