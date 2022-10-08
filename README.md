@@ -29,7 +29,7 @@ end)
 There is no configuration. Just use `:Castabout forwards`
 or `:Castabout backwards` to search like `/` or `?`.
 
-You can 'improve' or override existing behavior like this:
+You could override default keymaps like this, but probably should not:
 
 ```lua
 vim.api.nvim_set_keymap('n', '/', ':Castabout forwards<CR>',  {noremap = true})
