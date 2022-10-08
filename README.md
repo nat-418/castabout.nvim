@@ -2,14 +2,14 @@
 
 ![Turner, "Steam-Boat off a Harbour's Mouth"](./castabout.jpg)
 
-A fancier way to search in Neovim. You should probably use
-[Telescope](https://github.com/nvim-telescope/telescope.nvim) instead,
-but Castabout is much simpler and demonstrates a basic Neovim plugin
-in Lua.
+Castabout is an example Neovim plugin to search through a buffer.
+You should probably use
+[Telescope](https://github.com/nvim-telescope/telescope.nvim) instead.
+Castabout is a simple demonstratation of a basic Neovim plugin in Lua.
 
 ## Requirements
 
-Castabout depends on
+Castabout optionally depends on
 [dressing.nvim](https://github.com/stevearc/dressing.nvim) for fancy UI.
 
 ## Installing
