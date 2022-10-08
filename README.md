@@ -1,5 +1,7 @@
 # Castabout
 
+![Turner, "Steam-Boat off a Harbour's Mouth"](./castabout.jpg)
+
 A fancier way to search in Neovim. You should probably use
 [Telescope](https://github.com/nvim-telescope/telescope.nvim) instead,
 but Castabout is much simpler and demonstrates a basic Neovim plugin
