@@ -1,0 +1,55 @@
+*castabout.txt*  An example Neovim plugin for searching through buffers.
+
+==============================================================================
+CONTENTS                                          *castabout-contents*
+
+    1. Introduction ......................... |castabout-introduction|
+    2. Install .............................. |castabout-install|
+    3. Commands ............................. |castabout-commands|
+    4. Configuration ........................ |castabout-config|
+
+==============================================================================
+1. INTRODUCTION                                       *castabout-introduction*
+
+Castabout is an example Neovim plugin to search through a buffer. You should
+probably use Telescope instead. Castabout is a simple demonstratation of a
+basic Neovim plugin in Lua.
+
+==============================================================================
+2. INSTALL                                                 *castabout-install*
+
+Using Packer: >
+    use({
+      'https://github.com/nat-418/castabout.nvim',
+      config = function()
+	      require('castabout').setup()
+      end
+    })
+
+==============================================================================
+3. COMMANDS                                               *castabout-commands*
+
+:Castabout {forwards|backwards}                                    *Castabout*
+
+Search forwards or backwards in buffer, same as `/` and `?`.
+
+==============================================================================
+4. CONFIGURATION                                            *castabout-config*
+
+You could override default keymaps like this: >            *castabout.setup()*
+  require('castabout').setup({
+    mappings = {
+      increment = '<C-a>',
+      decrement = '<C-x>'
+    },
+    -- Key value pairs of additional replacements
+    -- increment: (key => value)
+    -- decrement: (value => key)
+    pair_additions = {
+      ['Foo'] = 'Bar',
+      ['Bar'] = 'Foo'
+    },
+  })
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:noet:fen:noet:
