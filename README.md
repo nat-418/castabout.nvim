@@ -19,10 +19,10 @@ with [Packer](https://github.com/nvim-telescope/telescope.nvim):
 
 ```lua
 return require('packer').startup(function(use)
-  use {
+  use({
     'https://github.com/nat-418/castabout.nvim',
     requires = 'https://github.com/stevearc/dressing.nvim'
-  }
+  })
 end)
 ```
 
