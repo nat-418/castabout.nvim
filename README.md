@@ -34,7 +34,7 @@ or `:Castabout backwards` to search like `/` or `?`.
 You could override default keymaps like this, but probably should not:
 
 ```lua
--- Use Castabout in normal and visual modes using / and ?
+-- Use Castabout in normal and visual modes using / and ? keys
 vim.keymap.set({'n', 'v'}, '/', '<Cmd>Castabout forwards<CR>')
 vim.keymap.set({'n', 'v'}, '?', '<Cmd>Castabout backwards<CR>')
 ```
