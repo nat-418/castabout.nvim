@@ -1,6 +1,4 @@
-# Castabout
-
-![Turner, "Steam-Boat off a Harbour's Mouth"](./castabout.jpg)
+# Castabout 🏐
 
 Castabout is an example Neovim plugin to search through a buffer.
 You should probably use
